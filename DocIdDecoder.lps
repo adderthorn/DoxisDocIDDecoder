@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="DocIdDecoder.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="20"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unitmain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormMain"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UnitMain"/>
+        <TopLine Value="7"/>
+        <CursorPos Y="22"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unitdocid.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UnitDocId"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="23"/>
+        <CursorPos X="17" Y="45"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpcsrc\rtl\inc\objpas.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="308"/>
+        <CursorPos X="27" Y="323"/>
+        <UsageCount Value="10"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="13">
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="18" Column="8"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="17" Column="26"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="21" Column="59"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="22" Column="79" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="29" Column="35" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="34" Column="22" TopLine="18"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="51" Column="47" TopLine="24"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="38" Column="37" TopLine="28"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="20" Column="52" TopLine="2"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="41" Column="11" TopLine="14"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="38" Column="27" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="40" Column="15" TopLine="24"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="45" Column="14" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="unitdocid.pas"/>
+        <Caret Line="45" Column="14" TopLine="29"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

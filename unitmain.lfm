@@ -1,0 +1,29 @@
+object FormMain: TFormMain
+  Left = 2506
+  Height = 429
+  Top = 156
+  Width = 618
+  Caption = 'Doc ID Utility'
+  Menu = MainMenu
+  Position = poDefault
+  LCLVersion = '3.6.0.0'
+  object ActionList: TActionList
+    Left = 91
+    Top = 232
+    object FileExit: TFileExit
+      Category = 'File'
+      Caption = 'E&xit'
+      Hint = 'Exit'
+    end
+  end
+  object MainMenu: TMainMenu
+    Left = 123
+    Top = 110
+    object MenuItemFile: TMenuItem
+      Caption = '&File'
+      object MenuItemFileExit: TMenuItem
+        Action = FileExit
+      end
+    end
+  end
+end

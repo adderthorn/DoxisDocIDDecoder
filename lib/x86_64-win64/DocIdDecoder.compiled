@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\bin\x86_64-win64\fpc.exe" Date="1531791362"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw3 -gl -WG -l -vewnhibq -FiC:\Users\woodn\source\repos\DocIdDecoder\lib\x86_64-win64 -FuC:\lazarus\lazarus\lcl\units\x86_64-win64\win32 -FuC:\lazarus\lazarus\lcl\units\x86_64-win64 -FuC:\lazarus\lazarus\components\freetype\lib\x86_64-win64 -FuC:\lazarus\lazarus\components\lazutils\lib\x86_64-win64 -FuC:\lazarus\lazarus\packager\units\x86_64-win64 -FuC:\Users\woodn\source\repos\DocIdDecoder\ -FUC:\Users\woodn\source\repos\DocIdDecoder\lib\x86_64-win64\ -FEC:\Users\woodn\source\repos\DocIdDecoder\ -oC:\Users\woodn\source\repos\DocIdDecoder\DocIdDecoder.exe -dLCL -dLCLwin32 DocIdDecoder.lpr"/>
+</CONFIG>
