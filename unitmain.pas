@@ -118,6 +118,8 @@ begin
   case AnAction.Tag of
     0: DateTimeToString(DateStr, 'yyyyMMdd', DocumentId.DocumentDate);
     1: DateStr:=DateToISO8601(DocumentId.DocumentDate, true);
+  else
+    DateStr:='';
   end;
   Clipboard.AsText:=DateStr;
   Status:=Format('Copied: "%s"', [DateStr]);

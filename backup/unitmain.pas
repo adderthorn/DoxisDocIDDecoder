@@ -116,8 +116,8 @@ var
 begin
   AnAction:=TAction(Sender);
   case AnAction.Tag of
-    0: DateTimeToString(DateStr, 'yyyyMMdd', DocumentDatePicker.DateTime);
-    1: DateStr:=DateToISO8601(DocumentDatePicker.DateTime, true);
+    0: DateTimeToString(DateStr, 'yyyyMMdd', DocumentId.DocumentDate);
+    1: DateStr:=DateToISO8601(DocumentId.DocumentDate, true);
   end;
   Clipboard.AsText:=DateStr;
   Status:=Format('Copied: "%s"', [DateStr]);

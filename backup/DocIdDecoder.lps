@@ -3,7 +3,7 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="12"/>
-    <BuildModes Active="Debug"/>
+    <BuildModes Active="Release"/>
     <Units>
       <Unit>
         <Filename Value="DocIdDecoder.lpr"/>
@@ -22,8 +22,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UnitMain"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="99"/>
-        <CursorPos X="43" Y="115"/>
+        <TopLine Value="78"/>
+        <CursorPos X="27" Y="95"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
