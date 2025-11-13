@@ -1,7 +1,7 @@
 object FormMain: TFormMain
-  Left = 1195
+  Left = 1055
   Height = 321
-  Top = 188
+  Top = 175
   Width = 392
   Caption = 'Doc ID Utility'
   ClientHeight = 321
@@ -1405,6 +1405,12 @@ object FormMain: TFormMain
       Caption = 'Copy (ISO 8601)'
       OnExecute = ActionDateCopy
     end
+    object HelpAbout: TAction
+      Category = 'Help'
+      Caption = '&About...'
+      Hint = 'About this application.'
+      OnExecute = HelpAboutExecute
+    end
   end
   object MainMenu: TMainMenu
     Left = 272
@@ -1446,6 +1452,12 @@ object FormMain: TFormMain
       end
       object MenuItemSelectAll: TMenuItem
         Action = EditSelectAll
+      end
+    end
+    object MenuItemHelp: TMenuItem
+      Caption = '&Help'
+      object MenuItemHelpAbout: TMenuItem
+        Action = HelpAbout
       end
     end
   end

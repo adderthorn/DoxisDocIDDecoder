@@ -14,6 +14,7 @@ type
   { TFormMain }
 
   TFormMain = class(TForm)
+    HelpAbout: TAction;
     ActionDateCopyISO: TAction;
     ActionDateCopyYYYMMDD: TAction;
     FileParse: TAction;
@@ -31,6 +32,8 @@ type
     DatabaseEdit: TLabeledEdit;
     LabelDocumentDate: TLabel;
     LabelVersion: TLabel;
+    MenuItemHelpAbout: TMenuItem;
+    MenuItemHelp: TMenuItem;
     MenuItemDateCopyYYYYMMDD: TMenuItem;
     MenuItemDateCopyISO: TMenuItem;
     PopupMenuDateCopy: TPopupMenu;
@@ -56,6 +59,7 @@ type
     procedure ActionDateCopy(Sender: TObject);
     procedure FileParseExecute(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure HelpAboutExecute(Sender: TObject);
   private
     DocumentId: TDocumentId;
     procedure RaiseStatus(Message: string);
@@ -80,6 +84,16 @@ end;
 procedure TFormMain.FormDestroy(Sender: TObject);
 begin
   FreeAndNil(DocumentId);
+end;
+
+procedure TFormMain.HelpAboutExecute(Sender: TObject);
+var
+  Message: string;
+begin
+  Message:='Doc ID Decoder' +
+  'Version 1.0' +
+  'Created by Noah Wood';
+  ShowMessage(Message);
 end;
 
 procedure TFormMain.FileParseExecute(Sender: TObject);
@@ -107,7 +121,6 @@ begin
   DocumentDatePicker.DateTime:=DocumentId.DocumentDate;
   VersionSpin.Value:=DocumentId.Version;
   RaiseStatus('Parsed successfully');
-  MainMenu.
 end;
 
 procedure TFormMain.ActionDateCopy(Sender: TObject);
