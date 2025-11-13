@@ -107,6 +107,7 @@ begin
   DocumentDatePicker.DateTime:=DocumentId.DocumentDate;
   VersionSpin.Value:=DocumentId.Version;
   RaiseStatus('Parsed successfully');
+  MainMenu.
 end;
 
 procedure TFormMain.ActionDateCopy(Sender: TObject);
@@ -118,6 +119,8 @@ begin
   case AnAction.Tag of
     0: DateTimeToString(DateStr, 'yyyyMMdd', DocumentId.DocumentDate);
     1: DateStr:=DateToISO8601(DocumentId.DocumentDate, true);
+  else
+    DateStr:='';
   end;
   Clipboard.AsText:=DateStr;
   Status:=Format('Copied: "%s"', [DateStr]);

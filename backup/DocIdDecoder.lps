@@ -3,7 +3,7 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="12"/>
-    <BuildModes Active="Release"/>
+    <BuildModes Active="Debug"/>
     <Units>
       <Unit>
         <Filename Value="DocIdDecoder.lpr"/>
@@ -12,7 +12,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="83"/>
       </Unit>
       <Unit>
         <Filename Value="unitmain.pas"/>
@@ -22,9 +22,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UnitMain"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="78"/>
-        <CursorPos X="27" Y="95"/>
-        <UsageCount Value="27"/>
+        <TopLine Value="85"/>
+        <CursorPos X="38" Y="109"/>
+        <UsageCount Value="83"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -35,7 +35,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="104"/>
         <CursorPos X="35" Y="117"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="83"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -43,14 +43,10 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="308"/>
         <CursorPos X="27" Y="323"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="3"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="unitmain.pas"/>
-        <Caret Line="37" Column="14" TopLine="28"/>
-      </Position>
       <Position>
         <Filename Value="unitmain.pas"/>
         <Caret Line="21" Column="29" TopLine="6"/>
@@ -166,6 +162,10 @@
       <Position>
         <Filename Value="unitmain.pas"/>
         <Caret Line="116" Column="35" TopLine="91"/>
+      </Position>
+      <Position>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="95" Column="27" TopLine="78"/>
       </Position>
     </JumpHistory>
     <RunParams>
