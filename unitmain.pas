@@ -14,6 +14,8 @@ type
   { TFormMain }
 
   TFormMain = class(TForm)
+    ButtonConstruct: TButton;
+    FileConstruct: TAction;
     HelpAbout: TAction;
     ActionDateCopyISO: TAction;
     ActionDateCopyYYYMMDD: TAction;
@@ -32,6 +34,7 @@ type
     DatabaseEdit: TLabeledEdit;
     LabelDocumentDate: TLabel;
     LabelVersion: TLabel;
+    MenuItemFileConstruct: TMenuItem;
     MenuItemHelpAbout: TMenuItem;
     MenuItemHelp: TMenuItem;
     MenuItemDateCopyYYYYMMDD: TMenuItem;
@@ -57,6 +60,7 @@ type
     VersionSpin: TSpinEditEx;
     StaticTextError: TStaticText;
     procedure ActionDateCopy(Sender: TObject);
+    procedure FileConstructExecute(Sender: TObject);
     procedure FileParseExecute(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure HelpAboutExecute(Sender: TObject);
@@ -138,6 +142,11 @@ begin
   Clipboard.AsText:=DateStr;
   Status:=Format('Copied: "%s"', [DateStr]);
   RaiseStatus(Status);
+end;
+
+procedure TFormMain.FileConstructExecute(Sender: TObject);
+begin
+
 end;
 
 end.

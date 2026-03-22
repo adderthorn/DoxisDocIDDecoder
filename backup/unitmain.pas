@@ -14,6 +14,9 @@ type
   { TFormMain }
 
   TFormMain = class(TForm)
+    ButtonConstruct: TButton;
+    FileConstruct: TAction;
+    Button1: TButton;
     HelpAbout: TAction;
     ActionDateCopyISO: TAction;
     ActionDateCopyYYYMMDD: TAction;
@@ -32,6 +35,7 @@ type
     DatabaseEdit: TLabeledEdit;
     LabelDocumentDate: TLabel;
     LabelVersion: TLabel;
+    MenuItemFileConstruct: TMenuItem;
     MenuItemHelpAbout: TMenuItem;
     MenuItemHelp: TMenuItem;
     MenuItemDateCopyYYYYMMDD: TMenuItem;
@@ -90,8 +94,8 @@ procedure TFormMain.HelpAboutExecute(Sender: TObject);
 var
   Message: string;
 begin
-  Message:='Doc ID Decoder' +
-  'Version 1.0' +
+  Message:='Doc ID Decoder' + LineEnding +
+  'Version 1.0' + LineEnding +
   'Created by Noah Wood';
   ShowMessage(Message);
 end;
