@@ -21,21 +21,27 @@ type
       FErrorMessage: string;
       FErrorPosition: integer;
       procedure Parse;
+      procedure Construct;
       procedure RaiseError(Pos: integer; Field: string);
     public
       constructor Create; overload;
       constructor Create(DocumentId: string); overload;
       destructor Destroy; override;
       procedure SetDocumentId(value: string);
+      procedure SetDatabaseName(value: string);
+      procedure SetUuid(value: string);
+      procedure SetDocumentDate(value: TDateTime);
+      procedure SetInformationObjectType(value: InformationObjectType);
+      procedure SetVersion(value: integer);
       function GetDocumentId: string;
       function GetHasError: boolean;
     published
       property FullDocumentId: string read GetDocumentId write SetDocumentId;
-      property DatabaseName: string read FDatabaseName;
-      property Uuid: string read FUuid;
-      property DocumentDate: TDateTime read FDocumentDate;
-      property InformationObjectType: InformationObjectType read FInformationObjectType;
-      property Version: integer read FVersion;
+      property DatabaseName: string read FDatabaseName write SetDatabaseName;
+      property Uuid: string read FUuid write SetUuid;
+      property DocumentDate: TDateTime read FDocumentDate write SetDocumentDate;
+      property InformationObjectType: InformationObjectType read FInformationObjectType write SetInformationObjectType;
+      property Version: integer read FVersion write SetVersion;
       property HasError: boolean read GetHasError;
       property ErrorMessage: string read FErrorMessage;
       property ErrorPosition: integer read FErrorPosition;
@@ -59,6 +65,33 @@ implementation
     inherited;
   end;
 
+  procedure TDocumentId.Construct;
+  var
+    TempId, TempDate, TempVer: string;
+  begin
+    if string.IsNullOrEmpty(FDatabaseName)
+    or string.IsNullOrEmpty(FUuid)
+    or (FVersion < 0)
+    or (FInformationObjectType = None)
+    //TODO: Figure out document date
+    then exit;
+
+    TempId:='S';
+    case FInformationObjectType of
+      Document: TempId+='D';
+      Folder: TempId+='F';
+      Task: TempId+='T';
+    end;
+
+    TempId+=FDatabaseName.Length.ToHexString(2) + FDatabaseName;
+    TempId+=FUuid.Length.ToHexString(2) + FUuid;
+    TempDate:=DateToISO8601(FDocumentDate, true);
+    TempId+=TempDate.Length.ToHexString(2) + TempDate;
+    TempVer:=IntToStr(FVersion);
+    TempId+=TempVer.Length.ToHexString(2) + TempVer;
+    FId:=TempId;
+  end;
+
   procedure TDocumentId.Parse;
   var
     DbLen, UuidLen, DateLen, DateStr, VersionLen: string;
@@ -80,8 +113,14 @@ implementation
     else
       FInformationObjectType:=None;
     end;
-
     i:=2;
+
+    if (FInformationObjectType = None) then
+    begin
+      RaiseError(i, 'Information Object Type');
+      exit;
+    end;
+
     try
       DbLen:=FId.Substring(i, 2);
       DbLenInt:=StrToInt('$' + DbLen);
@@ -155,6 +194,51 @@ implementation
       Result:=true
     else
       Result:=false;
+  end;
+
+  procedure TDocumentId.SetDatabaseName(value: string);
+  begin
+    if FDatabaseName <> value then
+    begin
+      FDatabaseName:=value;
+      Construct;
+    end;
+  end;
+
+  procedure TDocumentId.SetUuid(value: string);
+  begin
+    if FUuid <> value then
+    begin
+      FUuid:=value;
+      Construct;
+    end;
+  end;
+
+  procedure TDocumentId.SetDocumentDate(value: TDateTime);
+  begin
+    if FDocumentDate <> value then
+    begin
+      FDocumentDate:=value;
+      Construct;
+    end;
+  end;
+
+  procedure TDocumentId.SetInformationObjectType(value: InformationObjectType);
+  begin
+    if FInformationObjectType <> value then
+    begin
+      FInformationObjectType:=value;
+      Construct;
+    end;
+  end;
+
+  procedure TDocumentId.SetVersion(value: integer);
+  begin
+    if FVersion <> value then
+    begin
+      FVersion:=value;
+      Construct;
+    end;
   end;
 
 end.

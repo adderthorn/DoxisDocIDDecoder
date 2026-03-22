@@ -1263,7 +1263,7 @@ object FormMain: TFormMain
     TabOrder = 3
   end
   object VersionSpin: TSpinEditEx
-    Left = 168
+    Left = 184
     Height = 23
     Top = 264
     Width = 80
@@ -1279,7 +1279,7 @@ object FormMain: TFormMain
     Left = 16
     Height = 23
     Top = 264
-    Width = 137
+    Width = 158
     CenturyFrom = 1941
     MaxDate = 2958465
     MinDate = -53780
@@ -1290,10 +1290,10 @@ object FormMain: TFormMain
     PopupMenu = PopupMenuDateCopy
     Kind = dtkDateTime
     TimeFormat = tf24
-    TimeDisplay = tdHMS
+    TimeDisplay = tdHMSMs
     DateMode = dmComboBox
-    Date = 2
-    Time = 0.334260937503132
+    Date = 1.7E308
+    Time = 1.7E308
     UseDefaultSeparators = True
     HideDateTimeParts = []
     MonthNames = 'Long'
@@ -1306,7 +1306,7 @@ object FormMain: TFormMain
     Caption = 'Document Date'
   end
   object LabelVersion: TLabel
-    Left = 168
+    Left = 184
     Height = 15
     Top = 248
     Width = 38
@@ -1344,22 +1344,14 @@ object FormMain: TFormMain
       end>
     SimplePanel = False
   end
-  object Button1: TButton
-    Left = 298
-    Height = 25
-    Top = 168
-    Width = 75
-    Caption = 'Button1'
-    TabOrder = 9
-  end
   object ButtonConstruct: TButton
     Left = 290
     Height = 25
     Top = 119
     Width = 115
     Action = FileConstruct
-    Anchors = [akTop, akLeft, akRight]
-    TabOrder = 10
+    Anchors = [akTop, akRight]
+    TabOrder = 9
   end
   object ActionList: TActionList
     Left = 272
@@ -1433,6 +1425,7 @@ object FormMain: TFormMain
       Caption = '&Construct'
       Hint = 'Construct ID from components.'
       ShortCut = 8308
+      OnExecute = FileConstructExecute
     end
   end
   object MainMenu: TMainMenu

@@ -127,6 +127,26 @@ begin
   RaiseStatus('Parsed successfully');
 end;
 
+procedure TFormMain.FileConstructExecute(Sender: TObject);
+begin
+  FreeAndNil(DocumentId);
+  DocumentId:=TDocumentId.Create;
+  with DocumentId do
+  begin
+    case RadioGroupObjectType.ItemIndex of
+      0: InformationObjectType:=Document;
+      1: InformationObjectType:=Folder;
+      2: InformationObjectType:=Task;
+    end;
+    DatabaseName:=DatabaseEdit.Text;
+    Uuid:=UUIDEdit.Text;
+    DocumentDate:=DocumentDatePicker.DateTime;
+    Version:=VersionSpin.Value;
+    DocumentIdEdit.Text:=DocumentId.FullDocumentId;
+    RaiseStatus('Constructed Successfully');
+  end;
+end;
+
 procedure TFormMain.ActionDateCopy(Sender: TObject);
 var
   DateStr, Status: string;
@@ -142,11 +162,6 @@ begin
   Clipboard.AsText:=DateStr;
   Status:=Format('Copied: "%s"', [DateStr]);
   RaiseStatus(Status);
-end;
-
-procedure TFormMain.FileConstructExecute(Sender: TObject);
-begin
-
 end;
 
 end.
