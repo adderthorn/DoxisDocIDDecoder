@@ -1,11 +1,11 @@
 object FormMain: TFormMain
-  Left = 1055
-  Height = 321
-  Top = 175
-  Width = 392
+  Left = 1450
+  Height = 322
+  Top = 225
+  Width = 423
   Caption = 'Doc ID Utility'
-  ClientHeight = 321
-  ClientWidth = 392
+  ClientHeight = 322
+  ClientWidth = 423
   Icon.Data = {
     BE9400000000010001006060000001002000A894000016000000280000006000
     0000C00000000100200000000000009000006400000064000000000000000000
@@ -1200,17 +1200,17 @@ object FormMain: TFormMain
     0000
   }
   Menu = MainMenu
-  OnDestroy = FormDestroy
   Position = poDefaultPosOnly
-  LCLVersion = '3.6.0.0'
+  LCLVersion = '4.6.0.0'
+  OnDestroy = FormDestroy
   object DocumentIdEdit: TLabeledEdit
     Left = 16
     Height = 23
     Top = 32
-    Width = 358
+    Width = 389
     Anchors = [akTop, akLeft, akRight]
     EditLabel.Height = 15
-    EditLabel.Width = 358
+    EditLabel.Width = 389
     EditLabel.Caption = 'Long-Form Document ID'
     TabOrder = 0
   end
@@ -1243,10 +1243,10 @@ object FormMain: TFormMain
     Left = 16
     Height = 23
     Top = 168
-    Width = 358
+    Width = 389
     Anchors = [akTop, akLeft, akRight]
     EditLabel.Height = 15
-    EditLabel.Width = 358
+    EditLabel.Width = 389
     EditLabel.Caption = 'Database Name'
     TabOrder = 2
   end
@@ -1255,20 +1255,21 @@ object FormMain: TFormMain
     Left = 16
     Height = 23
     Top = 216
-    Width = 358
+    Width = 389
     Anchors = [akTop, akLeft, akRight]
     EditLabel.Height = 15
-    EditLabel.Width = 358
+    EditLabel.Width = 389
     EditLabel.Caption = 'UUID'
     TabOrder = 3
   end
   object VersionSpin: TSpinEditEx
-    Left = 168
+    Left = 184
     Height = 23
     Top = 264
     Width = 80
     MaxLength = 0
     NumbersOnly = True
+    SpinButtonWidth = 17
     TabOrder = 4
     MaxValue = 100
     NullValue = 0
@@ -1278,7 +1279,7 @@ object FormMain: TFormMain
     Left = 16
     Height = 23
     Top = 264
-    Width = 137
+    Width = 158
     CenturyFrom = 1941
     MaxDate = 2958465
     MinDate = -53780
@@ -1289,10 +1290,10 @@ object FormMain: TFormMain
     PopupMenu = PopupMenuDateCopy
     Kind = dtkDateTime
     TimeFormat = tf24
-    TimeDisplay = tdHMS
+    TimeDisplay = tdHMSMs
     DateMode = dmComboBox
-    Date = 2
-    Time = 0.334260937503132
+    Date = 1.7E308
+    Time = 1.7E308
     UseDefaultSeparators = True
     HideDateTimeParts = []
     MonthNames = 'Long'
@@ -1305,7 +1306,7 @@ object FormMain: TFormMain
     Caption = 'Document Date'
   end
   object LabelVersion: TLabel
-    Left = 168
+    Left = 184
     Height = 15
     Top = 248
     Width = 38
@@ -1318,31 +1319,39 @@ object FormMain: TFormMain
     Left = 16
     Height = 17
     Top = 56
-    Width = 358
+    Width = 389
     Anchors = [akTop, akLeft, akRight]
     TabOrder = 6
   end
   object ButtonParse: TButton
-    Left = 299
+    Left = 290
     Height = 25
     Top = 88
-    Width = 75
+    Width = 115
     Action = FileParse
     Anchors = [akTop, akRight]
-    Caption = 'P&arse (F5)'
     TabOrder = 7
   end
   object StatusBar: TStatusBar
     Left = 0
     Height = 23
-    Top = 298
-    Width = 392
+    Top = 299
+    Width = 423
     Panels = <    
       item
         Text = 'Ready.'
         Width = 50
       end>
     SimplePanel = False
+  end
+  object ButtonConstruct: TButton
+    Left = 290
+    Height = 25
+    Top = 119
+    Width = 115
+    Action = FileConstruct
+    Anchors = [akTop, akRight]
+    TabOrder = 9
   end
   object ActionList: TActionList
     Left = 272
@@ -1391,8 +1400,8 @@ object FormMain: TFormMain
     object FileParse: TAction
       Category = 'File'
       Caption = 'P&arse'
-      OnExecute = FileParseExecute
       ShortCut = 116
+      OnExecute = FileParseExecute
     end
     object ActionDateCopyYYYMMDD: TAction
       Category = 'DateCopy'
@@ -1411,6 +1420,13 @@ object FormMain: TFormMain
       Hint = 'About this application.'
       OnExecute = HelpAboutExecute
     end
+    object FileConstruct: TAction
+      Category = 'File'
+      Caption = '&Construct'
+      Hint = 'Construct ID from components.'
+      ShortCut = 8308
+      OnExecute = FileConstructExecute
+    end
   end
   object MainMenu: TMainMenu
     Left = 272
@@ -1419,6 +1435,9 @@ object FormMain: TFormMain
       Caption = '&File'
       object MenuItemFileParse: TMenuItem
         Action = FileParse
+      end
+      object MenuItemFileConstruct: TMenuItem
+        Action = FileConstruct
       end
       object Separator3: TMenuItem
         Caption = '-'

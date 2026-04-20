@@ -14,6 +14,8 @@ type
   { TFormMain }
 
   TFormMain = class(TForm)
+    ButtonConstruct: TButton;
+    FileConstruct: TAction;
     HelpAbout: TAction;
     ActionDateCopyISO: TAction;
     ActionDateCopyYYYMMDD: TAction;
@@ -32,6 +34,7 @@ type
     DatabaseEdit: TLabeledEdit;
     LabelDocumentDate: TLabel;
     LabelVersion: TLabel;
+    MenuItemFileConstruct: TMenuItem;
     MenuItemHelpAbout: TMenuItem;
     MenuItemHelp: TMenuItem;
     MenuItemDateCopyYYYYMMDD: TMenuItem;
@@ -57,6 +60,7 @@ type
     VersionSpin: TSpinEditEx;
     StaticTextError: TStaticText;
     procedure ActionDateCopy(Sender: TObject);
+    procedure FileConstructExecute(Sender: TObject);
     procedure FileParseExecute(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure HelpAboutExecute(Sender: TObject);
@@ -90,8 +94,8 @@ procedure TFormMain.HelpAboutExecute(Sender: TObject);
 var
   Message: string;
 begin
-  Message:='Doc ID Decoder' +
-  'Version 1.0' +
+  Message:='Doc ID Decoder' + LineEnding +
+  'Version 1.0' + LineEnding +
   'Created by Noah Wood';
   ShowMessage(Message);
 end;
@@ -121,6 +125,26 @@ begin
   DocumentDatePicker.DateTime:=DocumentId.DocumentDate;
   VersionSpin.Value:=DocumentId.Version;
   RaiseStatus('Parsed successfully');
+end;
+
+procedure TFormMain.FileConstructExecute(Sender: TObject);
+begin
+  FreeAndNil(DocumentId);
+  DocumentId:=TDocumentId.Create;
+  with DocumentId do
+  begin
+    case RadioGroupObjectType.ItemIndex of
+      0: InformationObjectType:=Document;
+      1: InformationObjectType:=Folder;
+      2: InformationObjectType:=Task;
+    end;
+    DatabaseName:=DatabaseEdit.Text;
+    Uuid:=UUIDEdit.Text;
+    DocumentDate:=DocumentDatePicker.DateTime;
+    Version:=VersionSpin.Value;
+    DocumentIdEdit.Text:=DocumentId.FullDocumentId;
+    RaiseStatus('Constructed Successfully');
+  end;
 end;
 
 procedure TFormMain.ActionDateCopy(Sender: TObject);
