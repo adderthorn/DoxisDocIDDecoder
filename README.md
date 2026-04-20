@@ -20,8 +20,9 @@ There are some additional copy options on the Document Date field via the right-
 
 ## Planned Enhancements
 
-1. Ability convert from the requisite components into the long-form UUID.
-2. Binaries for macOS and Linux
+1. [X] Ability convert from the requisite components into the long-form UUID.
+2. [ ] Binaries for macOS and Linux
+3. [ ] Clear/reset button to clear out the UI
 
 ## Building
 
