@@ -1,7 +1,7 @@
 object FormMain: TFormMain
-  Left = 1450
+  Left = 2320
   Height = 322
-  Top = 225
+  Top = 392
   Width = 423
   Caption = 'Doc ID Utility'
   ClientHeight = 322
@@ -1270,7 +1270,7 @@ object FormMain: TFormMain
     MaxLength = 0
     NumbersOnly = True
     SpinButtonWidth = 17
-    TabOrder = 4
+    TabOrder = 5
     MaxValue = 100
     NullValue = 0
     Value = 0
@@ -1283,7 +1283,7 @@ object FormMain: TFormMain
     CenturyFrom = 1941
     MaxDate = 2958465
     MinDate = -53780
-    TabOrder = 5
+    TabOrder = 4
     TrailingSeparator = False
     TextForNullDate = 'NULL'
     LeadingZeros = True
@@ -1321,7 +1321,7 @@ object FormMain: TFormMain
     Top = 56
     Width = 389
     Anchors = [akTop, akLeft, akRight]
-    TabOrder = 6
+    TabOrder = 8
   end
   object ButtonParse: TButton
     Left = 290
@@ -1330,7 +1330,7 @@ object FormMain: TFormMain
     Width = 115
     Action = FileParse
     Anchors = [akTop, akRight]
-    TabOrder = 7
+    TabOrder = 6
   end
   object StatusBar: TStatusBar
     Left = 0
@@ -1351,7 +1351,7 @@ object FormMain: TFormMain
     Width = 115
     Action = FileConstruct
     Anchors = [akTop, akRight]
-    TabOrder = 9
+    TabOrder = 7
   end
   object ActionList: TActionList
     Left = 272
@@ -1427,6 +1427,13 @@ object FormMain: TFormMain
       ShortCut = 8308
       OnExecute = FileConstructExecute
     end
+    object FileReset: TAction
+      Category = 'File'
+      Caption = '&Reset'
+      Hint = 'Reset the dialog.'
+      ShortCut = 120
+      OnExecute = FileResetExecute
+    end
   end
   object MainMenu: TMainMenu
     Left = 272
@@ -1438,6 +1445,9 @@ object FormMain: TFormMain
       end
       object MenuItemFileConstruct: TMenuItem
         Action = FileConstruct
+      end
+      object MenuItemFileReset: TMenuItem
+        Action = FileReset
       end
       object Separator3: TMenuItem
         Caption = '-'
