@@ -14,6 +14,7 @@ type
   { TFormMain }
 
   TFormMain = class(TForm)
+    FileReset: TAction;
     ButtonConstruct: TButton;
     FileConstruct: TAction;
     HelpAbout: TAction;
@@ -34,6 +35,7 @@ type
     DatabaseEdit: TLabeledEdit;
     LabelDocumentDate: TLabel;
     LabelVersion: TLabel;
+    MenuItemFileReset: TMenuItem;
     MenuItemFileConstruct: TMenuItem;
     MenuItemHelpAbout: TMenuItem;
     MenuItemHelp: TMenuItem;
@@ -62,6 +64,7 @@ type
     procedure ActionDateCopy(Sender: TObject);
     procedure FileConstructExecute(Sender: TObject);
     procedure FileParseExecute(Sender: TObject);
+    procedure FileResetExecute(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure HelpAboutExecute(Sender: TObject);
   private
@@ -125,6 +128,17 @@ begin
   DocumentDatePicker.DateTime:=DocumentId.DocumentDate;
   VersionSpin.Value:=DocumentId.Version;
   RaiseStatus('Parsed successfully');
+end;
+
+procedure TFormMain.FileResetExecute(Sender: TObject);
+begin
+  DocumentDatePicker.DateTime:=NullDate;
+  VersionSpin.Value:=0;
+  UUIDEdit.Clear;
+  DatabaseEdit.Clear;
+  RadioGroupObjectType.ItemIndex:=-1;
+  DocumentIdEdit.Clear;
+  DocumentIdEdit.SetFocus;
 end;
 
 procedure TFormMain.FileConstructExecute(Sender: TObject);

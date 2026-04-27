@@ -1,7 +1,7 @@
 object FormMain: TFormMain
-  Left = 1450
+  Left = 2320
   Height = 322
-  Top = 225
+  Top = 392
   Width = 423
   Caption = 'Doc ID Utility'
   ClientHeight = 322
@@ -1427,6 +1427,13 @@ object FormMain: TFormMain
       ShortCut = 8308
       OnExecute = FileConstructExecute
     end
+    object FileReset: TAction
+      Category = 'File'
+      Caption = '&Reset'
+      Hint = 'Reset the dialog.'
+      ShortCut = 120
+      OnExecute = FileResetExecute
+    end
   end
   object MainMenu: TMainMenu
     Left = 272
@@ -1438,6 +1445,9 @@ object FormMain: TFormMain
       end
       object MenuItemFileConstruct: TMenuItem
         Action = FileConstruct
+      end
+      object MenuItemFileReset: TMenuItem
+        Action = FileReset
       end
       object Separator3: TMenuItem
         Caption = '-'
